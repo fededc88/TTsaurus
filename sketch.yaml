@@ -8,6 +8,7 @@ profiles:
       - platform: arduino:avr (1.8.4)
     libraries:
       - Servo (1.2.2)
+      - CommandParser (1.1.1)
     port: 
     port_config:
 
