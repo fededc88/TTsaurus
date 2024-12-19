@@ -1,11 +1,15 @@
+
+#include <avr/pgmspace.h>
 #include "cli.h"
+
+#include "cli_art.h"
 
 /* private: */
 void ttcli::menue(void)
 {
     /* Print menue */
-    Serial.println("Print menue Here");
-
+    art_printer(dyno_art);
+    art_printer(ttsaurus_art);
 }
 
 void ttcli::run(void)
