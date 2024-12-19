@@ -45,10 +45,10 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  cli.run();  
-  
- 
- /*
+    /* Command Line Interfase runner */
+    cli.run();  
+
+/*
   if (controlData == START_CMD)
   {
     myservo.write(180);
@@ -61,7 +61,7 @@ void loop() {
     Serial.print("Servo: ");
     Serial.println(myservo.read());
   }
-  */
+*/
 
 }
 

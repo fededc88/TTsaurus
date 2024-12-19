@@ -18,7 +18,7 @@ const char dyno_art[] PROGMEM = {
 };
 
 const char ttsaurus_art[] PROGMEM = {
-"_____ _____\n\
+" _____ _____\n\
 |_   _|_   _|__  __ _ _   _ _ __ _   _ ___\n\
   | |   | |/ __|/ _` | | | | '__| | | / __|\n\
   | |   | |\\__ \\ (_| | |_| | |  | |_| \\__ \\\n\
@@ -35,23 +35,32 @@ void art_printer(const char * s1)
     /* Calculate the length of the string */
     nchar = strlen_P(s1);
 
-    Serial.println(nchar);
+    //Serial.println(nchar);
 
     nlines = modf(((double)nchar/CLI_ART_LINE_LENGTH), &nlines_f) == 0 ? (size_t) nlines_f : (size_t) (nlines_f + 1); 
-    Serial.println(nlines_f);
-    Serial.println(nlines);
+    //Serial.println(nlines_f);
+    //Serial.println(nlines);
 
-    for(nlines; nlines > 0; nlines--)
+    for(nlines; nlines > 0; --nlines)
     {
-        if(nchar > 80)
+
+        if(nchar >= 80)
         {
             memcpy_P(buff, s1, 80);
+            s1 += 80;
             nchar = nchar - 80;
+
         }
         else
+        {
             memcpy_P(buff, s1, nchar );
+            s1 += nchar;
+            buff[nchar] = 0;
 
-        Serial.println(buff);
+        }
+
+        /* rawr!! */
+        Serial.print(buff);
     }
 }
     
