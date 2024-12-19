@@ -25,10 +25,23 @@ const char ttsaurus_art[] PROGMEM = {
   |_|   |_||___/\\__,_|\\__,_|_|   \\__,_|___/\n"
 };
 
+/**
+ * \brief program space art printer
+ * 
+ * \param [in] s1 pointer to an array in program space
+ * 
+ * Program scace memory need to be accessed with special instructions, this
+ * function will retrieve the memory in chunks of CLI_ART_LINE_LENGTH to a
+ * buffer and print it through the serial port.
+ * 
+ * Serial should have been initialized by the user.
+ * 
+ * \return void
+ */
 void art_printer(const char * s1)
 {
-    char buff[CLI_ART_LINE_LENGTH];
-    size_t nchar = 0, nlines = 0;
+    char buff[CLI_ART_LINE_LENGTH+1];
+    size_t nchar = 0, nlines = 0, nnext;
 
     double nlines_f = 0;
 
@@ -43,21 +56,14 @@ void art_printer(const char * s1)
 
     for(nlines; nlines > 0; --nlines)
     {
+        /* copy memory from mem space to buff */
+        nnext = nchar >= CLI_ART_LINE_LENGTH ? CLI_ART_LINE_LENGTH: nchar; 
+        memcpy_P(buff, s1, nnext);
+        s1 += nnext;
+        nchar = nchar - nnext;
 
-        if(nchar >= 80)
-        {
-            memcpy_P(buff, s1, 80);
-            s1 += 80;
-            nchar = nchar - 80;
-
-        }
-        else
-        {
-            memcpy_P(buff, s1, nchar );
-            s1 += nchar;
-            buff[nchar] = 0;
-
-        }
+        /* add string terminator */
+        buff[nnext] = 0;
 
         /* rawr!! */
         Serial.print(buff);
