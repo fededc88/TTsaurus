@@ -8,8 +8,18 @@
 void ttcli::menue(void)
 {
     /* Print menue */
+    
+    art_printer(divider_art);
+
     art_printer(dyno_art);
     art_printer(ttsaurus_art);
+
+    art_printer(divider_art);
+
+
+    Serial.println("TTsaurus Dyno");
+    Serial.println("");
+    Serial.println("TEST <str> <float> \t \t test command");
 }
 
 void ttcli::run(void)

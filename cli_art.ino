@@ -1,6 +1,10 @@
 
 #include <math.h>
 
+const char divider_art[] PROGMEM = { 
+"------------------------------------------------------------------------------\n"
+};
+
 const char dyno_art[] PROGMEM = { 
 "                        / `.   .' \n\
                 .---.  <    > <    >  .---.\n\
