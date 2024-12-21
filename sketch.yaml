@@ -1,0 +1,15 @@
+profiles:
+
+  metro328:
+    notes: ttsaurus profile for adafruit metro328 target
+    fqbn: arduino:avr:uno
+    programmer:
+    platforms:
+      - platform: arduino:avr (1.8.4)
+    libraries:
+      - Servo (1.2.2)
+      - CommandParser (1.1.1)
+    port: 
+    port_config:
+
+pdefault_profile: metro328
