@@ -8,6 +8,7 @@
 #include <stdio.h>
 
 #include "cli.h"
+#include "serial.h"
 
 //Defines
 #define neutral 0

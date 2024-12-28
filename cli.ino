@@ -5,6 +5,8 @@
 #include "cli_art.h"
 #include "cli_callbacks.h"
 
+#include "serial.h"
+
 
 /* private: */
 void ttcli::menue(parser::Argument *args, char *response)
@@ -37,17 +39,13 @@ void ttcli::begin(void)
 
 }
 
-size_t ttcli::serial()
+void ttcli::run(void)
 {
-    size_t cmd_len = 0;
-
-    if(Serial.available() > 0)
+    if(serial_read(ttcli::line, ttcli::line_length) > 0)
     {
-        cmd_len = Serial.readBytesUntil('\n', line, line_length);
-        line[cmd_len++] = '\0';
+        ttcli::processCommand(line, response);
+        Serial.println(response);
     }
-
-    return cmd_len;
 }
 
 void cmd_test(parser::Argument *args, char * response)

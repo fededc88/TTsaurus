@@ -27,9 +27,6 @@ class ttcli: public parser
     private:
         char line[LINE_LENGTH];
         char response[LINE_LENGTH];
-
-        size_t serial(void);
-
 };
 
 #endif
