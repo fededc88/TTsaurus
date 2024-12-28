@@ -3,9 +3,11 @@
 #include "cli.h"
 
 #include "cli_art.h"
+#include "cli_callbacks.h"
+
 
 /* private: */
-void ttcli::menue(void)
+void ttcli::menue(parser::Argument *args, char *response)
 {
     /* Print menue */
     
@@ -16,19 +18,23 @@ void ttcli::menue(void)
 
     art_printer(divider_art);
 
-
     Serial.println("TTsaurus Dyno");
     Serial.println("");
     Serial.println("TEST <str> <float> \t \t test command");
 }
 
-void ttcli::run(void)
+void ttcli::begin(void)
 {
-    if( ttcli::serial() > 0)
-    {
-        ttcli::processCommand(line, response);
-        Serial.println(response);
-    }
+    Serial.println("registering functions");
+
+    registerCommand("help", "", (void (*)(CommandParser<>::Argument*, char*)) &ttcli::menue);
+    //registerCommand("rawr", "", );
+
+    registerCommand("start", "", cmd_start_callback);
+    registerCommand("stop", "", cmd_stop_callback);
+
+    //registerCommand("TEST", "sd", &cmd_start_callback);
+
 }
 
 size_t ttcli::serial()

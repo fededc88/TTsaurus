@@ -9,14 +9,10 @@
 
 #include "cli.h"
 
-char rawr[5] = {'r','a','r','w'};
 //Defines
 #define neutral 0
-#define start "rawr"
 #define START_CMD 'g'
 #define STOP_CMD 's' 
-
-
 
 //Working Data 
 int controlData = 0;
@@ -33,13 +29,10 @@ void setup() {
   /* Initialize Serial */
   Serial.begin(9600); while(!Serial){;} /* Wait serial connection TODO: add a loop break */
 
-  /* Send Start RARW!! */
-  Serial.println(rawr + '!!!');
-
   myservo.attach(9);       // attaches the servo on pin 9 to the servo object
 
-  cli.menue();
-
+  /* Send Start RARW!! */
+  cli.begin();
 }
 
 void loop() {

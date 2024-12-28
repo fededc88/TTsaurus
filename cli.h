@@ -18,12 +18,10 @@ class ttcli: public parser
         ttcli(int line_len = LINE_LENGTH)
         {
             line_length = line_len;
-
-            registerCommand("TEST", "sd", &cmd_test);
-
         }
 
-        void menue(void);
+        void begin(void);
+        void menue(parser::Argument *args, char *response);
         void run(void);
 
     private:
