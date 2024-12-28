@@ -7,8 +7,6 @@
 
 typedef CommandParser<> parser;
 
-void cmd_test(parser::Argument *args, char *response);
-
 class ttcli: public parser
 {
     public:
