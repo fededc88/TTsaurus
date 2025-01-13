@@ -1,4 +1,8 @@
 
+#include "cli_callbacks.h"
+
+#include <stdio.h>
+
 void cmd_start_callback(CommandParser<>::Argument *args, char* response)
 {
     sprintf(response, "Start Callback");
