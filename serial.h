@@ -3,6 +3,8 @@
 
 #define SERIAL_TX_LENGTH 120
 
+#include <stddef.h>
+
 size_t serial_read(char *s1, size_t len);
 
 #ifdef DEBUG

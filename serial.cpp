@@ -1,6 +1,10 @@
 
 #include "serial.h"
 
+#if defined (__AVR__) || (__avr__)
+#include <Arduino.h>
+#endif
+
 #ifdef DEBUG
 char serial_tx_buff[SERIAL_TX_LENGTH];
 #endif
