@@ -1,4 +1,14 @@
 
+#include "cli_art.h"
+
+#if defined (__AVR__) || (__avr__)
+#include <Arduino.h>
+#include <avr/pgmspace.h>
+#else
+#define PROGMEM 
+#define memcpy_P(a, b, c) memcpy(a, b, c)
+#endif
+
 #include <math.h>
 
 const char divider_art[] PROGMEM = { 
