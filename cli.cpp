@@ -1,12 +1,10 @@
 
-#include <avr/pgmspace.h>
 #include "cli.h"
 
 #include "cli_art.h"
 #include "cli_callbacks.h"
 
 #include "serial.h"
-
 
 /* private: */
 void ttcli::menue(parser::Argument *args, char *response)
@@ -20,9 +18,10 @@ void ttcli::menue(parser::Argument *args, char *response)
 
     art_printer(divider_art);
 
-    Serial.println("TTsaurus Dyno");
-    Serial.println("");
-    //Serial.println("TEST <str> <float> \t \t test command");
+    serial_println("Wraaaar!!");
+    serial_println("");
+    //println("TEST <str> <float> \t \t test command");
+
 }
 
 void ttcli::begin(void)
@@ -41,7 +40,6 @@ void ttcli::run(void)
     if(serial_read(ttcli::line, ttcli::line_length) > 0)
     {
         ttcli::processCommand(line, response);
-        Serial.println(response);
     }
 }
 
