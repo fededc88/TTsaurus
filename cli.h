@@ -5,7 +5,9 @@
  * CommandParser assumes it will be run under arduino, it needs stddef.h &
  * stdint.h included 
  */
-#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include <stdint.h>
 #include <CommandParser.h>
 
