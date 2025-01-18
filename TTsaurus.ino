@@ -28,7 +28,7 @@ void setup() {
   // put your setup code here, to run once:
 
   /* Initialize Serial */
-  Serial.begin(9600); while(!Serial){;} /* Wait serial connection TODO: add a loop break */
+  serial_init();
 
   myservo.attach(9);       // attaches the servo on pin 9 to the servo object
 

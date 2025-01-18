@@ -1,9 +1,17 @@
 #ifndef __CLI_H__
 #define __CLI_H__
 
+/*
+ * CommandParser assumes it will be run under arduino, it needs stddef.h &
+ * stdint.h included 
+ */
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
 #include <CommandParser.h>
 
-#define LINE_LENGTH 40 /* default line length */
+#define LINE_LENGTH 40 /**< default line length */
 
 /**
  * All of the template arguments below are optional, but it is useful to adjust
