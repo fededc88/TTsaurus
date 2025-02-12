@@ -9,6 +9,7 @@ profiles:
     libraries:
       - Servo (1.2.2)
       - CommandParser (1.1.1)
+      - AS5040 (0.1.0)
     port: 
     port_config:
 
