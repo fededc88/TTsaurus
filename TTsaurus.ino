@@ -51,10 +51,6 @@ void loop() {
     /* Command Line Interfase runner */
     cli.run();  
 
-    Serial.println(AS5040.readAbsolutePosition());
-
-    delay(1000);
-
     /*
        if (controlData == START_CMD)
        {
